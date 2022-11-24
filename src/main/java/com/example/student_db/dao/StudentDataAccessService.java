@@ -55,7 +55,7 @@ public class StudentDataAccessService implements StudentDao {
         final String sql = "SELECT id, name, gender, age, email FROM student WHERE id = ?";
 
 
-        Student student = jdbcTemplate.queryForObject(
+        List<Student> student = jdbcTemplate.query(
                 sql,
                 (rs, rowNum) -> {
                     UUID studentId = UUID.fromString(rs.getString("id"));
@@ -66,13 +66,10 @@ public class StudentDataAccessService implements StudentDao {
 
                     return new Student(studentId, name, gender, age, email);
                 },
-                new Object[]{id});
+                id);
 
         System.out.println("before return"+ Optional.ofNullable(student));
-        return Optional.ofNullable(student);
-
-
-
+        return student.stream().findFirst();
 
     }
 

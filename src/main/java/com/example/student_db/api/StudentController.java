@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 
+import javax.el.PropertyNotFoundException;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.UUID;
@@ -33,7 +34,7 @@ public class StudentController {
     @GetMapping(path = "{id}")
     public Student getStudentById(@PathVariable("id") UUID id) {
         return studentService.getStudentById(id)
-                .orElse(null);}
+                .orElseThrow(()-> new PropertyNotFoundException("Student with id not found"));}
 
     @DeleteMapping(path = "{id}")
     public void deleteStudentById(@PathVariable("id") UUID id) {
