@@ -5,9 +5,7 @@ import com.example.student_db.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpClientErrorException;
 
-import javax.el.PropertyNotFoundException;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -15,6 +13,7 @@ import java.util.UUID;
 @Service
 public class StudentService {
     private final StudentDao studentDao;
+
 
     @Autowired
     public StudentService(@Qualifier("postgres") StudentDao studentDao) {
@@ -25,8 +24,8 @@ public class StudentService {
         return studentDao.insertStudent(student);
     }
 
-    public List<Student> getAllPeople() {
-        return studentDao.selectAllPeople();
+    public List<Student> getAllStudent() {
+        return studentDao.selectAllStudent();
     }
 
     public Optional<Student> getStudentById(UUID id) {

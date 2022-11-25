@@ -49,6 +49,12 @@
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
 		</dependency>
+		<!-- Spring Data JPA -->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.data</groupId>-->
+<!--			<artifactId>spring-data-jpa</artifactId>-->
+<!--			<version>1.7.2.RELEASE</version>-->
+<!--		</dependency>-->
 
 
 	</dependencies>
@@ -58,7 +64,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>${project.parent.version}</version>
+				<version>${parent.version}</version>
 			</plugin>
 		</plugins>
 	</build>

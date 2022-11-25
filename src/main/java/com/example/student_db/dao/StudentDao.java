@@ -14,7 +14,7 @@ public interface StudentDao {
         return insertStudent(id, student);
     }
 
-    List<Student> selectAllPeople();
+    List<Student> selectAllStudent();
 
     Optional<Student> selectStudentById(UUID id);
 

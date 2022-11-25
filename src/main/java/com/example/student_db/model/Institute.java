@@ -1,13 +1,14 @@
 package com.example.student_db.model;
 
-import javax.validation.constraints.NotBlank;
-import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class Institute {
     private final String name;
-    private final String department;
 
-    public Institute(String name, String department) {
+    private final Department department;
+@Autowired
+    public Institute(String name, Department department) {
         this.name = name;
         this.department = department;
     }
@@ -16,8 +17,5 @@ public class Institute {
         return name;
     }
 
-    public String getDepartment() {
-        return department;
-    }
 
 }

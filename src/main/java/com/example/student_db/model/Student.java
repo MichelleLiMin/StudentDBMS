@@ -1,10 +1,12 @@
 package com.example.student_db.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.NotBlank;
 import java.util.UUID;
 
+@Component
 public class Student implements PersonInterface {
     private final UUID id;
     @NotBlank

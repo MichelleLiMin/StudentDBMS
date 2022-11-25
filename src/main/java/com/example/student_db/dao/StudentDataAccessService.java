@@ -23,7 +23,7 @@ public class StudentDataAccessService implements StudentDao {
 
         try {
             final String sql = "INSERT INTO student(id, name, gender, age, email) VALUES (?, ?, ?, ?, ?);";
-            System.out.println("");
+
             jdbcTemplate.update(sql, id, student.getName(), student.getGender(), student.getAge(), student.getEmail());
             return 1;
         } catch (Exception e) {
@@ -36,7 +36,7 @@ public class StudentDataAccessService implements StudentDao {
     }
 
     @Override
-    public List<Student> selectAllPeople() {
+    public List<Student> selectAllStudent() {
         final String sql = "SELECT * FROM student";
         return jdbcTemplate.query(sql, (rs, rowNum) -> {
             UUID id = UUID.fromString(rs.getString("id"));
@@ -48,7 +48,7 @@ public class StudentDataAccessService implements StudentDao {
             return new Student(id, name, gender, age, email);
 
         });
-    };
+    }
 
     @Override
     public Optional<Student> selectStudentById(UUID id) {
